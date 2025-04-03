@@ -15,7 +15,7 @@ public class CadastroClienteWindow extends JFrame {
 
     public CadastroClienteWindow() {
         setTitle("Cadastro de Cliente");
-        setSize(500, 500);
+        setSize(500, 160);
         setLayout(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -41,21 +41,23 @@ public class CadastroClienteWindow extends JFrame {
         getContentPane().add(txfCpf);
 
         btnSalvar = new JButton(new AbstractAction("Salvar") {
+
+            //Required field modal
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (txfNome.getText().isEmpty())
                 {
-                    JOptionPane.showMessageDialog(null, "Campo nome obrigatório!");
+                    JOptionPane.showMessageDialog(txfNome, "Campo nome obrigatório!");
                     return;
                 }
 
                 if(txfCpf.getText().isEmpty())
                 {
-                    JOptionPane.showMessageDialog(null, "Campo CPF obrigatório!");
+                    JOptionPane.showMessageDialog(txfCpf, "Campo CPF obrigatório!");
                     return;
                 }
 
-                JOptionPane.showMessageDialog(null, "Cliente salvo! :D");
+                JOptionPane.showMessageDialog(btnSalvar, "Cliente salvo! :D");
             }
         });
         btnSalvar.setBounds(65, 80, 250, 25);
