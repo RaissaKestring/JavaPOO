@@ -1,6 +1,7 @@
 package View;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 // Passo 1: Usar herança para escolher uma janela
 // Passo 2: Criar o construtor
@@ -39,7 +40,24 @@ public class CadastroClienteWindow extends JFrame {
         txfCpf.setBounds(65, 45, 250, 25);
         getContentPane().add(txfCpf);
 
-        btnSalvar = new JButton("SALVAR");
+        btnSalvar = new JButton(new AbstractAction("Salvar") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (txfNome.getText().isEmpty())
+                {
+                    JOptionPane.showMessageDialog(null, "Campo nome obrigatório!");
+                    return;
+                }
+
+                if(txfCpf.getText().isEmpty())
+                {
+                    JOptionPane.showMessageDialog(null, "Campo CPF obrigatório!");
+                    return;
+                }
+
+                JOptionPane.showMessageDialog(null, "Cliente salvo! :D");
+            }
+        });
         btnSalvar.setBounds(65, 80, 250, 25);
         getContentPane().add(btnSalvar);
     }
