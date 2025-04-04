@@ -1,6 +1,7 @@
 package View;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 // Passo 1: Usar herança para escolher uma janela
@@ -12,10 +13,12 @@ public class CadastroClienteWindow extends JFrame {
     private JLabel lblNome, lblCpf;
     private JTextField txfNome, txfCpf;
     private JButton btnSalvar;
+    private JPanel pnlPrincipal;
+    private JLabel lblTextoPainel;
 
     public CadastroClienteWindow() {
         setTitle("Cadastro de Cliente");
-        setSize(500, 160);
+        setSize(500, 400);
         setLayout(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -62,5 +65,15 @@ public class CadastroClienteWindow extends JFrame {
         });
         btnSalvar.setBounds(65, 80, 250, 25);
         getContentPane().add(btnSalvar);
+
+        pnlPrincipal = new JPanel();
+        pnlPrincipal.setBounds(10, 115, 500, 100);
+        pnlPrincipal.setBackground(new Color(0, 172, 193));
+        getContentPane().add(pnlPrincipal);
+
+        lblTextoPainel = new JLabel("Raissa Kestring");
+        lblTextoPainel.setForeground(Color.white);
+        pnlPrincipal.add(lblTextoPainel);
+
     }
 }
